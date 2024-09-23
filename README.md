@@ -1,5 +1,5 @@
 
-# 💻 Linux Average Load 실습
+# 💻 Linux Average Load Test
 
 ## :raising_hand: 팀원
 
@@ -10,7 +10,7 @@
 
 ## 📝 개요
 
-이 프로젝트는 Linux에서 **평균 부하(average load)**를 분석하고, CPU 및 I/O 집약적인 작업이 시스템에 미치는 영향을 실습하는 과정입니다. `stress`와 `sysstat` 패키지를 사용하여 CPU 및 I/O 부하를 시뮬레이션하고, `uptime`, `mpstat`, `pidstat` 등의 명령어로 시스템 성능을 모니터링하는 방법을 배웁니다.
+Linux에서 **Average Load**를 분석하고, CPU 및 I/O 집약적인 작업이 시스템에 미치는 영향을 테스트하는 과정입니다. `stress`와 `sysstat` 패키지를 사용하여 CPU 및 I/O 부하를 시뮬레이션하고, `uptime`, `mpstat`, `pidstat` 등의 명령어로 시스템 성능을 모니터링하는 방법을 배웁니다. 이 테스트를 통해 리눅스 시스템의 평균 부하에 대한 이해를 높이고, 시스템 성능 분석의 기초를 다질 수 있습니다.
 
 ## 🔧 요구 사항
 
@@ -28,7 +28,7 @@ sudo apt install stress sysstat
 ![image](https://velog.velcdn.com/images/yuwankang/post/b1afdaff-0d44-4831-bffe-3a910aad0276/image.png)
 ![image](https://velog.velcdn.com/images/yuwankang/post/8b151759-e90c-4c1e-b1d7-c5042c1552e1/image.png)
 
-## 🛠️ 실습 단계
+## 🛠️ 테스트 단계
 
 ### 1️⃣ 기본 시스템 상태 확인
 
@@ -175,4 +175,3 @@ pidstat -u 5 1
 - 평균 부하는 시스템의 전체적인 성능 상태를 빠르게 파악하는 데 유용합니다.
 - 하지만 평균 부하만으로는 정확한 병목 지점을 파악하기 어려우므로, `mpstat`, `pidstat` 등의 추가적인 도구를 활용하여 상세 분석이 필요합니다.
 - 평균 부하가 높다고 해서 반드시 CPU 사용률이 높은 것은 아니며, I/O 활동 증가 등 다른 요인도 고려해야 합니다.
-- 이 실습을 통해 리눅스 시스템의 평균 부하에 대한 이해를 높이고, 시스템 성능 분석의 기초를 다질 수 있습니다.
