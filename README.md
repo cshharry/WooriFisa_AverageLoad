@@ -1,6 +1,13 @@
 
 # 💻 Linux Average Load 실습
 
+## :raising_hand: 팀원
+
+| <img src="https://github.com/yuwankang.png" width="80"> | <img src="https://github.com/cshharry.png" width="80"> |
+|:---:|:---:|
+| [강유완](https://github.com/yuwankang) | [조성현](https://github.com/cshharry) |
+
+
 ## 📝 개요
 
 이 프로젝트는 Linux에서 **평균 부하(average load)**를 분석하고, CPU 및 I/O 집약적인 작업이 시스템에 미치는 영향을 실습하는 과정입니다. `stress`와 `sysstat` 패키지를 사용하여 CPU 및 I/O 부하를 시뮬레이션하고, `uptime`, `mpstat`, `pidstat` 등의 명령어로 시스템 성능을 모니터링하는 방법을 배웁니다.
