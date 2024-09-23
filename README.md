@@ -17,6 +17,8 @@
 sudo apt update
 sudo apt install stress sysstat
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/b1afdaff-0d44-4831-bffe-3a910aad0276/image.png)
+![](https://velog.velcdn.com/images/yuwankang/post/8b151759-e90c-4c1e-b1d7-c5042c1552e1/image.png)
 
 ## 실습 단계
 
@@ -27,11 +29,7 @@ sudo apt install stress sysstat
 ```bash
 uptime
 ```
-
-**예시 출력**:
-```
-14:30:21 up 3 days, 5:27,  1 user,  load average: 0.11, 0.15, 0.09
-```
+![image](https://github.com/user-attachments/assets/8d72e3fe-a1ff-4d57-834f-388a69ffe2d7)
 
 ---
 
@@ -44,6 +42,7 @@ CPU 하나를 100%로 사용하여 부하를 걸어봅니다. 600초 동안 CPU�
 ```bash
 stress --cpu 1 --timeout 600
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/762fcdda-f00a-4448-9953-0539c591daa1/image.png)
 
 #### 실시간으로 평균 부하 모니터링
 
@@ -52,6 +51,7 @@ stress --cpu 1 --timeout 600
 ```bash
 watch -d uptime
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/7a501d26-0013-41bc-b6a4-b831de957217/image.png)
 
 #### CPU 사용률 확인
 
@@ -60,6 +60,7 @@ watch -d uptime
 ```bash
 mpstat -P ALL 5
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/e4c15248-b691-482e-9921-df46a2b72d1c/image.png)
 
 #### CPU를 많이 사용하는 프로세스 확인
 
@@ -68,6 +69,7 @@ mpstat -P ALL 5
 ```bash
 pidstat -u 5 1
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/84fced42-5ed0-47df-bf6f-9987d3b1ba80/image.png)
 
 **결과**:
 - `stress`라는 프로세스가 CPU 사용률 100%를 차지하는 것을 확인할 수 있습니다.
@@ -84,6 +86,7 @@ I/O 작업에 부하를 주는 명령어를 실행하여 600초 동안 I/O 부�
 ```bash
 stress -i 1 --timeout 600
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/250cd2ae-665c-4cf4-89b7-37e1c374886f/image.png)
 
 #### 실시간으로 평균 부하 모니터링
 
@@ -92,6 +95,7 @@ stress -i 1 --timeout 600
 ```bash
 watch -d uptime
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/fb72bf88-610f-424b-9c8b-963a5a316c06/image.png)
 
 #### CPU 사용률 및 I/O 대기 상태 확인
 
@@ -100,6 +104,7 @@ watch -d uptime
 ```bash
 mpstat -P ALL 5
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/ad59d2d7-dc73-405f-bfda-b554e5289118/image.png)
 
 #### I/O 대기 중인 프로세스 확인
 
@@ -108,6 +113,7 @@ mpstat -P ALL 5
 ```bash
 pidstat -u 5 1
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/8f577bfe-f33e-46f7-b23e-6286a1d71fa6/image.png)
 
 **결과**:
 - CPU 사용률은 높지 않지만, I/O 대기 시간(`iowait`)이 크게 증가하는 것을 확인할 수 있습니다.
@@ -124,6 +130,7 @@ pidstat -u 5 1
 ```bash
 stress -c 8 --timeout 600
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/d8c89b07-815e-4b39-9b56-bcc9cd9b28d9/image.png)
 
 #### 평균 부하 확인
 
@@ -132,14 +139,22 @@ stress -c 8 --timeout 600
 ```bash
 uptime
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/98af7f5f-f42a-40a2-887f-9dd9c070a5c9/image.png)
 
 #### 프로세스 상태 확인
+`mpstat` 명령어를 사용하여 CPU 사용률 및 I/O 대기 상태를 모니터링합니다.
+
+```bash
+mpstat -P ALL 5
+```
+![](https://velog.velcdn.com/images/yuwankang/post/06bdb467-5b50-4dfe-832b-bfa37a434ed0/image.png)
 
 `pidstat` 명령어로 CPU를 대기 중인 프로세스를 확인합니다.
 
 ```bash
 pidstat -u 5 1
 ```
+![](https://velog.velcdn.com/images/yuwankang/post/587d1326-a7e2-424d-85f5-084e8b6aa8f5/image.png)
 
 **결과**:
 - 8개의 프로세스가 2개의 CPU를 공유하면서 CPU 대기 시간(`%wait`)이 크게 증가합니다.
@@ -147,5 +162,8 @@ pidstat -u 5 1
 
 ---
 
-
-이 README는 실습의 모든 단계를 설명하며, 각 명령어와 결과를 바탕으로 시스템 성능을 분석하는 방법을 제시합니다.
+## 결론
+- 평균 부하는 시스템의 전체적인 성능 상태를 빠르게 파악하는 데 유용합니다.
+- 하지만 평균 부하만으로는 정확한 병목 지점을 파악하기 어려우므로, `mpstat`, `pidstat` 등의 추가적인 도구를 활용하여 상세 분석이 필요합니다.
+- 평균 부하가 높다고 해서 반드시 CPU 사용률이 높은 것은 아니며, I/O 활동 증가 등 다른 요인도 고려해야 합니다.
+- 이 실습을 통해 리눅스 시스템의 평균 부하에 대한 이해를 높이고, 시스템 성능 분석의 기초를 다질 수 있습니다.
